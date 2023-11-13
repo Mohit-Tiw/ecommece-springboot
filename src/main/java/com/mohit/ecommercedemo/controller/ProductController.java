@@ -27,7 +27,13 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    //http://localhost:8080/api/products?name=Levis Shirt
     @GetMapping
+    public Product getProductByName(@RequestParam String name) {
+        return productService.getProductByName(name);
+    }
+
+    @GetMapping("/all")
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
     }

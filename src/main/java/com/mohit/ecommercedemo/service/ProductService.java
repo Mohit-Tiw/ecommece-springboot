@@ -41,6 +41,14 @@ public class ProductService {
         throw new RuntimeException("Product not found for id: " + id);
     }
 
+    public Product getProductByName(String name) {
+        Optional<Product> optionalProduct = productRepository.findByName(name);
+        if (optionalProduct.isPresent()){
+            return optionalProduct.get();
+        }
+        throw new RuntimeException("Product not found for name: " + name);
+    }
+
     public List<Product> getAllProduct() {
         return productRepository.findAll();
     }
